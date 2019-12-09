@@ -2,5 +2,7 @@ import java.util.*;
 
 public interface Node extends java.rmi.Remote 
 { 
-    public HashMap<String, List<String>> getAdminInfo();
+    public List<String> getConnections();
+
+    public HashMap<String, List<String>> getGroup(String IP);
 }

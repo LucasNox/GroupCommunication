@@ -25,7 +25,9 @@ public class grAdmin
         try{
             look_up = (Node) Naming.lookup("rmi://"+IP+"/groupCom");
 
-            HashMap<String, List<String>> resp = look_up.getAdminInfo();   
+            HashMap<String, List<String>> resp = look_up.getGroup(IP);   
+            System.out.println("Quantidade nós = " + resp.get("total"));
+            System.out.println("Grafo de conecxões do grupo:");
             for (Map.Entry<String, List<String>> entry : map.entrySet()){
                 System.out.println(entry.getKey() + " -> ");
                 for (int i = 0; i < entry.getValue().size(); i++){
