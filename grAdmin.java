@@ -53,7 +53,7 @@ public class grAdmin
     }
     /**
     * @fn public static void main(String[] args)
-    * @brief se conecta com um nó e recebe as infos de admin dele
+    * @brief se conecta com um nó e exibe as infos de admin dele
     * @param null
     * @return null
     */
