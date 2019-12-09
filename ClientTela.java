@@ -5,22 +5,45 @@ import java.awt.event.*;
 import java.rmi.Naming;
 import java.util.*;
 
+/**
+ * @file  ClientTela.java
+ * @brief Arquivo com as funções de construção e interação com a interface do usuario
+*/
+
 public class ClientTela { 
 
+		/*******************************************************************
+		*   GLOBAL VARIABLES
+		*******************************************************************/
     JTextArea tx;
     JTextField tf,ip, name;
     JButton connect, bt;
     JList lst;
     JFrame frame;
 
+		/*******************************************************************
+		*   IMPLEMENTATION
+		*******************************************************************/
     public void doConnect(){
         //connect to grouṕ
         bt.setEnabled(true);
-    }
+		}
+		/**
+    * @fn public void doConnect()
+    * @brief chama a conexão do usuario do usuario ao grupo
+    * @param null
+    * @return null
+    */
 
-    /*public void getTextUsers(){
-        get msgs in a thread
-    }*/
+    public void getTextUsers(){
+        //get msgs in a thread
+		}
+		/**
+    * @fn public void getTextUsers()
+    * @brief escuta/recebe as mensagens de outros usuarios
+    * @param null
+    * @return null
+    */
 
     public void sendText(){
           String st=tf.getText();
@@ -28,7 +51,13 @@ public class ClientTela {
           tf.setText("");
           tx.append(st);
           //send server
-      }
+		}
+		/**
+    * @fn public void sendText()
+    * @brief envia mensagens
+    * @param null
+    * @return null
+    */
      
     public ClientTela() {
         frame=new JFrame("Group Chat");
@@ -71,9 +100,21 @@ public class ClientTela {
 	    frame.setContentPane(main);
 	    frame.setSize(600,600);
 	    frame.setVisible(true);  
-    }
+		}
+		/**
+    * @fn public ClienteTela()
+    * @brief cria a tela do app
+    * @param null
+    * @return null
+    */
 
     public static void main(String[] args) {
-		ClientTela cliente = new ClientTela();
-    }
+			ClientTela cliente = new ClientTela();
+		}
+		/**
+    * @fn public static void main()
+    * @brief inicializa o app
+    * @param null
+    * @return null
+    */
 }
