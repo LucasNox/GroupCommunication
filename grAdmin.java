@@ -24,8 +24,14 @@ public class grAdmin
         
         try{
             look_up = (Node) Naming.lookup("rmi://"+IP+"/groupCom");
-            String resp = look_up.getAdminInfo();   
-            System.out.println(resp);         
+
+            HashMap<String, List<String>> resp = look_up.getAdminInfo();   
+            for (Map.Entry<String, List<String>> entry : map.entrySet()){
+                System.out.println(entry.getKey() + " -> ");
+                for (int i = 0; i < entry.getValue().size(); i++){
+                    System.out.println(entry.getValue().get(i) + ", ");
+                }
+            }
         }
         catch (MalformedURLException murle) { 
             System.out.println("\nMalformedURLException: "
