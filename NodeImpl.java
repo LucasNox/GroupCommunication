@@ -90,4 +90,56 @@ public class NodeImpl extends java.rmi.server.UnicastRemoteObject implements Nod
     * @param String IP - ip de um nó do grupo
     * @return HashMap<String, List<String>> group - grafo conexões do grupo
     */
+
+    @Override
+    public void eraseCon(String ip){
+        int index = connections.indexOf(ip);
+        if(index >= 0){
+            connections.remove(index);
+        }
+        index = nodes.indexOf(ip);
+        if(index >= 0){
+            nodes.remove(index);
+        }
+    }
+    /**
+    * @fn public void eraseCon(String ip)
+    * @brief apaga um nó do grupo
+    * @param String IP - ip de um nó do grupo
+    * @return void
+    */
+
+    @Override
+    public void sairGrupo(String ip){
+        for (int i = 0; i < connections.size(); i++){
+            try{
+                look_up = (Node) Naming.lookup("rmi://"+connections.get(i)+"/groupCom");
+                look_up.eraseCon(ip);
+            }
+            catch (MalformedURLException murle) { 
+                System.out.println("\nMalformedURLException: "
+                                    + murle); 
+            }
+            catch (RemoteException re) { 
+                System.out.println("\nRemoteException: "
+                                    + re); 
+            } 
+
+            catch (NotBoundException nbe) { 
+                System.out.println("\nNotBoundException: "
+                                    + nbe); 
+            } 
+
+            catch (java.lang.ArithmeticException ae) { 
+                System.out.println("\nArithmeticException: " + ae); 
+            } 
+        }
+        //reconfiguração de conexões
+    }
+    /**
+    * @fn public void sairGrupo(String ip)
+    * @brief Inicia o processo de saida de um nó do grupo
+    * @param String IP - ip próprio
+    * @return void
+    */
 }

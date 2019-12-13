@@ -17,7 +17,7 @@ public class ClientTela {
 		*******************************************************************/
     JTextArea tx;
     JTextField tf,ip, name;
-    JButton connect, bt;
+    JButton connect, bt, btc;
     JList lst;
     JFrame frame;
 
@@ -25,8 +25,9 @@ public class ClientTela {
 		*   IMPLEMENTATION
 		*******************************************************************/
     public void doConnect(){
-        //connect to grouṕ
-        bt.setEnabled(true);
+				//connection process
+				bt.setEnabled(true);
+				btc.setEnabled(true);
 		}
 		/**
     * @fn public void doConnect()
@@ -57,10 +58,20 @@ public class ClientTela {
     * @brief envia mensagens
     * @param null
     * @return null
-    */
+		*/
+		
+		public void closeConnection(){
+			//call client function to close connection
+		}
+		/**
+    * @fn public void closeConnection()
+    * @brief chama processo de saida do grupo
+    * @param null
+    * @return null
+		*/
      
     public ClientTela() {
-        frame=new JFrame("Group Chat");
+      frame=new JFrame("Group Chat");
 	    JPanel main =new JPanel();
 	    JPanel top =new JPanel();
 	    JPanel cn =new JPanel();
@@ -70,7 +81,8 @@ public class ClientTela {
 	    name=new JTextField();
 	    tx=new JTextArea();
 	    connect=new JButton("Connect");
-	    bt=new JButton("Send");
+			bt=new JButton("Send");
+	    btc=new JButton("Sair");
 	    lst=new JList();        
 	    main.setLayout(new BorderLayout(5,5));         
 	    top.setLayout(new GridLayout(1,0,5,5));   
@@ -78,7 +90,8 @@ public class ClientTela {
 	    bottom.setLayout(new BorderLayout(5,5));
 	    top.add(new JLabel("Your name: "));top.add(name);    
 	    top.add(new JLabel("Server Address: "));top.add(ip);
-	    top.add(connect);
+			top.add(connect);
+			top.add(btc);
 	    cn.add(new JScrollPane(tx), BorderLayout.CENTER);        
 	    cn.add(lst, BorderLayout.EAST);    
 	    bottom.add(tf, BorderLayout.CENTER);    
@@ -86,10 +99,13 @@ public class ClientTela {
 	    main.add(top, BorderLayout.NORTH);
 	    main.add(cn, BorderLayout.CENTER);
 	    main.add(bottom, BorderLayout.SOUTH);
-        main.setBorder(new EmptyBorder(10, 10, 10, 10) );
-        tx.setEditable(false);
-        bt.setEnabled(false);
-	    //Events
+      main.setBorder(new EmptyBorder(10, 10, 10, 10) );
+      tx.setEditable(false);
+			bt.setEnabled(false);
+			btc.setEnabled(false);
+			//Events
+			btc.addActionListener(new ActionListener(){
+	      public void actionPerformed(ActionEvent e){ closeConnection();   }  });
 	    connect.addActionListener(new ActionListener(){
 	      public void actionPerformed(ActionEvent e){ doConnect();   }  });
 	    bt.addActionListener(new ActionListener(){
