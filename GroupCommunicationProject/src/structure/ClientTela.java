@@ -97,7 +97,7 @@ public class ClientTela {
 			try{
 				LinkedList<Message> msgs = stub.getMSGS();
 			
-				System.out.println("LISTEN MSGS");
+				//System.out.println("LISTEN MSGS");
 		//System.out.println(msgs);
 
 		if(msgs.size() > 0){
@@ -124,7 +124,7 @@ public class ClientTela {
           tf.setText("");
 					tx.append(st);
 					try{
-						stub.sendString(kmsg, name.getText(), java.time.LocalTime.now());
+						stub.sendString(kmsg, name.getText(), java.time.LocalTime.now(), "");
 					}catch(Exception e){e.printStackTrace();};
 		}
 		/**

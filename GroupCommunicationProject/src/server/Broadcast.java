@@ -16,6 +16,7 @@ public interface Broadcast extends Remote {
     LinkedList<GroupNode> getNodes() throws RemoteException;
     void testSpeed() throws RemoteException;
     public String grAdmin() throws RemoteException;
-    public void sendString(String txt, String nick, LocalTime time) throws RemoteException;
+    public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException;
     public LinkedList<Message> getMSGS() throws RemoteException;
+    public void setMSG(Message msg) throws RemoteException;
 }

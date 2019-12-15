@@ -107,12 +107,27 @@ public class BroadcastImpl implements Broadcast {
     }
 
     @Override
-    public void sendString(String txt, String nick, LocalTime time) throws RemoteException{
+    public void setMSG(Message msg) throws RemoteException{
+        this.node.addMessage(msg);
+    }
+
+    @Override
+    public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException{
         System.out.println("SEND STRING");
         System.out.println(nick+txt+time);
         Message msg = new Message(nick, txt, time);
-        System.out.println(msg.getAuthor()+msg.getMessage()+msg.getTime());
-        this.node.addMessage(msg);
+        
+        LinkedList<GroupNode> cons = this.node.getConnections().getNodes();
+        for (GroupNode nos : cons) {
+            if(!ipF.equals(nos.getIP())){
+                try {
+                    Registry registry = LocateRegistry.getRegistry(nos.getIP());
+                    Broadcast stub = (Broadcast) registry.lookup("Broadcast");
+                    stub.setMSG(msg);
+                    stub.sendString(txt, nick, time, this.node.getIP());
+                }catch(Exception e){}
+            }
+        }
     }
 
     @Override
