@@ -1,11 +1,11 @@
 {
-	"configurations": [
-		{
-			"type": "java",
-			"name": "CodeLens (Launch) - ClientTela",
-			"request": "launch",
-			"mainClass": "structure.ClientTela",
-			"projectName": "GroupCommunicationProject"
-		}
-	]
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClientTela",
+            "request": "launch",
+            "mainClass": "structure.ClientTela",
+            "projectName": "GroupCommunicationProject"
+        }
+    ]
 }
