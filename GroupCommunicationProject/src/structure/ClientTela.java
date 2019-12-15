@@ -50,6 +50,7 @@ public class ClientTela {
 			String ipNode = ip.getText();
 			bt.setEnabled(true);
 			btc.setEnabled(true);
+
 			
 			Thread t = new Thread(new Server(IP));
 			t.start();
@@ -61,7 +62,9 @@ public class ClientTela {
 				stub.createGroup(IP);
 				if(!IP.equals(ipNode))
 				{
+					System.out.println(stub.getNodes());
 					stub.enterGroup(ipNode);
+					System.out.println(stub.getNodes());
 				}
 			} catch (Exception e) {
 				System.err.println("Client exception: " + e.toString());

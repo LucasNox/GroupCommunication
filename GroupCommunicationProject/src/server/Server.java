@@ -15,12 +15,15 @@ public class Server implements Runnable {
     @Override
     public void run () {
         try {
+            System.out.println("Antes de setar hostname, deixa eu ver o IP: " + this.IP);
+			System.setProperty("java.rmi.server.hostname", this.IP);
+
             BroadcastImpl obj = new BroadcastImpl();
             Broadcast stub = (Broadcast) UnicastRemoteObject.exportObject(obj, 0);
 
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
-            registry.bind("Broadcast", stub);
+            registry.rebind("Broadcast", stub);
 
             System.out.println("Server ready");
         } catch (Exception e) {

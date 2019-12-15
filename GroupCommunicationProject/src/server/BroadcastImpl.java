@@ -33,6 +33,7 @@ public class BroadcastImpl implements Broadcast {
             Registry registry = LocateRegistry.getRegistry(group_ip);
             Broadcast stub = (Broadcast) registry.lookup("Broadcast");
             LinkedList<GroupNode> nodes = stub.getNodes();
+            System.out.println(nodes);
             Iterator<GroupNode> it = nodes.iterator();
             LinkedList<Long> dtime = new LinkedList<>();
             while(it.hasNext())
@@ -49,6 +50,7 @@ public class BroadcastImpl implements Broadcast {
                 stub.testSpeed();
                 Long finish = System.currentTimeMillis();
                 dtime.addLast(finish - start);
+                System.out.println(finish - start);
             }
             Long minor_time = Long.MAX_VALUE;
             int minor_time_index = 0;
@@ -70,6 +72,7 @@ public class BroadcastImpl implements Broadcast {
 
     @Override
     public void testSpeed() throws RemoteException {
+        System.out.println("Estou sendo testado para averiguar velocidade");
         return;
     }
 

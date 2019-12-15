@@ -34,7 +34,10 @@ public class ConnectionGraph implements Serializable {
 			this.connections.put(id, new LinkedList<GroupNode>());
 		}
 		this.connections.get(id).addLast(node);
-		this.addNode(node);
+		if(!this.nodes.contains(node))
+		{
+			this.addNode(node);
+		}
 	}
 
 	public LinkedList<GroupNode> getNodes() {
