@@ -32,11 +32,7 @@ public class grAdmin
             Registry registry = LocateRegistry.getRegistry(IP);
 			Broadcast stub = (Broadcast) registry.lookup("Broadcast");
 						
-            LinkedList<String> info = stub.grAdmin();
-            Iterator it = info.iterator();
-            while(it.hasNext()){
-                System.out.println(it.next());
-            }
+            System.out.println(stub.grAdmin());
         } catch (Exception e) {
             System.err.println("grAdmin exception: " + e.toString());
             e.printStackTrace();

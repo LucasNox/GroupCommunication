@@ -13,5 +13,5 @@ public interface Broadcast extends Remote {
     GroupNode receiveNode(GroupNode node) throws RemoteException;
     LinkedList<GroupNode> getNodes() throws RemoteException;
     void testSpeed() throws RemoteException;
-    public LinkedList<String> grAdmin() throws RemoteException;
+    public String grAdmin() throws RemoteException;
 }
