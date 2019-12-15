@@ -49,7 +49,7 @@ public class BroadcastImpl implements Broadcast {
                 dtime.addLast(finish - start);
             }
             Long minor_time = Long.MAX_VALUE;
-            int minor_time_index;
+            int minor_time_index = 0;
             for(Long time : dtime) 
             {
                 if(time < minor_time)

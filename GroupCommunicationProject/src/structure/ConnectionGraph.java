@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Objects;
 
-import server.Broadcast;
-
 /**
  * ConnectionGraph
  */
@@ -36,10 +34,15 @@ public class ConnectionGraph implements Serializable {
 			this.connections.put(id, new LinkedList<GroupNode>());
 		}
 		this.connections.get(id).addLast(node);
+		this.addNode(node);
 	}
 
 	public LinkedList<GroupNode> getNodes() {
 		return this.nodes;
+	}
+
+	public void addNode(GroupNode node) {
+		this.nodes.addLast(node);
 	}
 
 	@Override
