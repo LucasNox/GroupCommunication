@@ -114,7 +114,7 @@ public class GroupNode implements Serializable {
 	}
 
 	public boolean checkAvailability() {
-		if(this.stub1 != null || this.stub2 != null || this.stub3 != null)
+		if(this.stub1 == null || this.stub2 == null || this.stub3 == null)
 		{
 			return true;
 		}
@@ -145,7 +145,6 @@ public class GroupNode implements Serializable {
 		return "{" +
 			" ID='" + getID() + "'" +
 			", messages='" + getMessages() + "'" +
-			", connections='" + getConnections() + "'" +
 			"}";
 	}
 	
