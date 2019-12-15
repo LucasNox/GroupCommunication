@@ -5,9 +5,18 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Server implements Runnable {
+    private String IP;
+
+    public Server(String IP) {
+        super();
+        this.IP = IP;
+    }
+
     @Override
     public void run () {
         try {
+            System.setProperty("java.rmi.server.hostname", IP);
+
             BroadcastImpl obj = new BroadcastImpl();
             Broadcast stub = (Broadcast) UnicastRemoteObject.exportObject(obj, 0);
 

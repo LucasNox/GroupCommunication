@@ -28,38 +28,42 @@ import server.Server;
 public class ClientTela { 
 
 		/*******************************************************************
-		*   GLOBAL VARIABLES
-		*******************************************************************/
-    JTextArea tx;
-    JTextField tf,ip, name, myIP;
-    JButton connect, bt, btc;
-    JList lst;
+		 *   GLOBAL VARIABLES
+		 *******************************************************************/
+		JTextArea tx;
+		JTextField tf,ip, name, myIP;
+		JButton connect, bt, btc;
+		JList lst;
 		JFrame frame;
 		
 		String IP;
 		Broadcast stub;
-
+		
 		/*******************************************************************
-		*   IMPLEMENTATION
-		*******************************************************************/
-    public void doConnect(){
-				IP = myIP.getText();
-				String ipNode = ip.getText();
-				bt.setEnabled(true);
-				btc.setEnabled(true);
-
-        try {
-            Registry registry = LocateRegistry.getRegistry(IP);
-						stub = (Broadcast) registry.lookup("Broadcast");
-						
-						stub.createGroup(IP);
-						if(!IP.equals(ipNode)){
-							stub.enterGroup(ipNode);
-						}
-        } catch (Exception e) {
-            System.err.println("Client exception: " + e.toString());
-            e.printStackTrace();
-        }
+		 *   IMPLEMENTATION
+		 *******************************************************************/
+		public void doConnect(){
+			IP = myIP.getText();
+			String ipNode = ip.getText();
+			bt.setEnabled(true);
+			btc.setEnabled(true);
+			
+			Thread t = new Thread(new Server(IP));
+			t.start();
+			try {
+				Thread.sleep(500);
+				Registry registry = LocateRegistry.getRegistry(IP);
+				stub = (Broadcast) registry.lookup("Broadcast");
+				
+				stub.createGroup(IP);
+				if(!IP.equals(ipNode))
+				{
+					stub.enterGroup(ipNode);
+				}
+			} catch (Exception e) {
+				System.err.println("Client exception: " + e.toString());
+				e.printStackTrace();
+			}
 		}
 		/**
     * @fn public void doConnect()
@@ -159,8 +163,6 @@ public class ClientTela {
     */
 
     public static void main(String[] args) {
-			Thread t = new Thread(new Server());
-			t.start();
 			ClientTela cliente = new ClientTela();
 		}
 		/**
