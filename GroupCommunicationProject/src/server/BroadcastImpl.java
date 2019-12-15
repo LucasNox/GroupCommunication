@@ -3,12 +3,14 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
 import structure.GroupNode;
+import structure.Message;
 
 public class BroadcastImpl implements Broadcast {
     private GroupNode node;
@@ -99,5 +101,20 @@ public class BroadcastImpl implements Broadcast {
             info = info + "\n";
         }
         return info;
+    }
+
+    @Override
+    public void sendString(String txt, String nick, LocalTime time) throws RemoteException{
+        System.out.println("SEND STRING");
+        System.out.println(nick+txt+time);
+        Message msg = new Message(nick, txt, time);
+        System.out.println(msg.getAuthor()+msg.getMessage()+msg.getTime());
+        this.node.addMessage(msg);
+    }
+
+    @Override
+    public LinkedList<Message> getMSGS() throws RemoteException{
+        //System.out.println("GET MSGS");
+        return this.node.getMessages();
     }
 }

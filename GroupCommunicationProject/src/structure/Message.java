@@ -1,7 +1,7 @@
 package structure;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -13,13 +13,9 @@ public class Message implements Serializable {
 	
 	private String author;
 	private String message;
-	private Instant time;
+	private LocalTime time;
 
-
-	public Message() {
-	}
-
-	public Message(final String author, final String message, final Instant time) {
+	public Message(final String author, final String message, final LocalTime time) {
 		this.author = author;
 		this.message = message;
 		this.time = time;
@@ -41,16 +37,16 @@ public class Message implements Serializable {
 		this.message = message;
 	}
 
-	public Instant getTime() {
+	public LocalTime getTime() {
 		return this.time;
 	}
 
-	public void setTime(final Instant time) {
+	public void setTime(final LocalTime time) {
 		this.time = time;
 	}
 
 	public void makeTime() {
-		this.time = Instant.now();
+		this.time = LocalTime.now();
 	}
 
 	@Override

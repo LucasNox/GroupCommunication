@@ -28,6 +28,7 @@ public class GroupNode implements Serializable {
 		super();
 		this.ID = 0;
 		this.IP = IP;
+		this.messages = null;
 		this.connections = new ConnectionGraph();
 		this.connections.addNode(this);
 		this.stub1 = null;
@@ -52,11 +53,24 @@ public class GroupNode implements Serializable {
 	}
 
 	public LinkedList<Message> getMessages() {
-		return this.messages;
+		//System.out.println("GET MESSAGES");
+
+		LinkedList<Message> msg = this.messages;
+		if(this.messages.size()>0){
+			System.out.println("MSGS CLEAR");
+			this.messages.clear();
+		}
+
+		return msg;
 	}
 
-	public void addMessage(Message message) {
-		this.messages.addLast(message);
+	public void addMessage(Message msg) {
+		System.out.println("ADD MESSAGES");
+		System.out.println(msg.getAuthor()+msg.getMessage()+msg.getTime());
+		
+		this.messages.addLast(msg);
+		//System.out.println(this.messages);
+
 	}
 
 	public ConnectionGraph getConnections() {

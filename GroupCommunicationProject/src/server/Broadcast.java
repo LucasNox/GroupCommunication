@@ -2,9 +2,11 @@ package server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.time.LocalTime;
 import java.util.LinkedList;
 
 import structure.GroupNode;
+import structure.Message;
 
 public interface Broadcast extends Remote {
     
@@ -14,4 +16,6 @@ public interface Broadcast extends Remote {
     LinkedList<GroupNode> getNodes() throws RemoteException;
     void testSpeed() throws RemoteException;
     public String grAdmin() throws RemoteException;
+    public void sendString(String txt, String nick, LocalTime time) throws RemoteException;
+    public LinkedList<Message> getMSGS() throws RemoteException;
 }

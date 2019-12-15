@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.LinkedList;
+import java.util.TimerTask;
 
+import java.util.Timer;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,14 +33,14 @@ public class ClientTela {
 		/*******************************************************************
 		 *   GLOBAL VARIABLES
 		 *******************************************************************/
-		JTextArea tx;
+		static JTextArea tx;
 		JTextField tf,ip, name, myIP;
 		JButton connect, bt, btc;
 		JList lst;
 		JFrame frame;
 		
 		String IP;
-		Broadcast stub;
+		static Broadcast stub;
 		
 		/*******************************************************************
 		 *   IMPLEMENTATION
@@ -64,17 +67,46 @@ public class ClientTela {
 				System.err.println("Client exception: " + e.toString());
 				e.printStackTrace();
 			}
+			new Thread(listenMSG).start();
 		}
 		/**
     * @fn public void doConnect()
     * @brief chama a conexão do usuario do usuario ao grupo
     * @param null
     * @return null
-    */
+		*/
+		
+		private static Runnable listenMSG = new Runnable() {
+			public void run() {
+					try{
+							Timer timer = new Timer();
+							timer.schedule(new TimerTask() {
+								@Override 
+									public void run(){
+										getTextUsers();
+									}
+							}, 1, 1);
+					} catch (Exception e){e.printStackTrace();}
+			}
+		};
 
-    public void getTextUsers(){
-        //get msgs in a thread
+    public static void getTextUsers(){
+			try{
+				LinkedList<Message> msgs = stub.getMSGS();
+			
+				System.out.println("LISTEN MSGS");
+		//System.out.println(msgs);
+
+		if(msgs.size() > 0){
+			System.out.println("MSGS EXIST");
+			for (Message msg : msgs) {
+				String format = "["+msg.getAuthor()+" "+msg.getTime()+"] "+msg.getMessage()+"\n";
+				tx.append(format);
+			}
 		}
+	}catch(Exception e){}
+	}
+		
 		/**
     * @fn public void getTextUsers()
     * @brief escuta/recebe as mensagens de outros usuarios
@@ -83,11 +115,14 @@ public class ClientTela {
     */
 
     public void sendText(){
-          String st=tf.getText();
-          st="["+name.getText()+"] "+st+"\n";
+					String st=tf.getText();
+					String kmsg=tf.getText();
+          st="["+name.getText()+ " " + java.time.LocalTime.now() +"] "+st+"\n";
           tf.setText("");
-          tx.append(st);
-          //send server
+					tx.append(st);
+					try{
+						stub.sendString(kmsg, name.getText(), java.time.LocalTime.now());
+					}catch(Exception e){e.printStackTrace();};
 		}
 		/**
     * @fn public void sendText()
@@ -98,6 +133,7 @@ public class ClientTela {
 		
 		public void closeConnection(){
 			//call client function to close connection
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 		/**
     * @fn public void closeConnection()
