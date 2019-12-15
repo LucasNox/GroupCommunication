@@ -9,4 +9,6 @@ public interface Node extends java.rmi.Remote
     public void sairGrupo(String ip);
 
     public void eraseCon(String ip);
+
+    public void enviarMSG(String word);
 }

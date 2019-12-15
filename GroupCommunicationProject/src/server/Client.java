@@ -17,7 +17,7 @@ public class Client implements Runnable {
         String host = (args.length < 1) ? null : args[0];
         try {
             Registry registry = LocateRegistry.getRegistry(host);
-            RandString stub = (RandString) registry.lookup("RandString"+args[1]);
+            Broadcast stub = (Broadcast) registry.lookup("Broadcast"+args[1]);
             String response = stub.saySomething();
             System.out.println("response: " + response);
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class Client implements Runnable {
     public void run() {
                 try {
                     Registry registry = LocateRegistry.getRegistry(host);
-                    RandString stub = (RandString) registry.lookup("RandString"+this.index);
+                    Broadcast stub = (Broadcast) registry.lookup("Broadcast"+this.index);
                     String response = stub.saySomething();
                     System.out.println("response: " + response);
                 } catch (Exception e) {

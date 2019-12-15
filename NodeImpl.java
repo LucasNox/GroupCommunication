@@ -142,4 +142,9 @@ public class NodeImpl extends java.rmi.server.UnicastRemoteObject implements Nod
     * @param String IP - ip próprio
     * @return void
     */
+
+    @Override
+    public enviarMSG(String word, String IP){
+        
+    }
 }

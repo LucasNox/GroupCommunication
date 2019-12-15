@@ -1,9 +1,24 @@
-import javax.swing.*;
-import javax.swing.border.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.rmi.Naming;
-import java.util.*;
+package structure;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import server.Broadcast;
+import server.Server;
 
 /**
  * @file  ClientTela.java
@@ -16,18 +31,35 @@ public class ClientTela {
 		*   GLOBAL VARIABLES
 		*******************************************************************/
     JTextArea tx;
-    JTextField tf,ip, name;
+    JTextField tf,ip, name, myIP;
     JButton connect, bt, btc;
     JList lst;
-    JFrame frame;
+		JFrame frame;
+		
+		String IP;
+		Broadcast stub;
 
 		/*******************************************************************
 		*   IMPLEMENTATION
 		*******************************************************************/
     public void doConnect(){
-				//connection process
+				IP = myIP.getText();
+				String ipNode = ip.getText();
 				bt.setEnabled(true);
 				btc.setEnabled(true);
+
+        try {
+            Registry registry = LocateRegistry.getRegistry(IP);
+						stub = (Broadcast) registry.lookup("Broadcast");
+						
+						stub.createGroup(IP);
+						if(!IP.equals(ipNode)){
+							stub.enterGroup(ipNode);
+						}
+        } catch (Exception e) {
+            System.err.println("Client exception: " + e.toString());
+            e.printStackTrace();
+        }
 		}
 		/**
     * @fn public void doConnect()
@@ -77,7 +109,8 @@ public class ClientTela {
 	    JPanel cn =new JPanel();
 	    JPanel bottom =new JPanel();
 	    ip=new JTextField();
-	    tf=new JTextField();
+			tf=new JTextField();
+			myIP=new JTextField();
 	    name=new JTextField();
 	    tx=new JTextArea();
 	    connect=new JButton("Connect");
@@ -89,7 +122,8 @@ public class ClientTela {
 	    cn.setLayout(new BorderLayout(5,5));
 	    bottom.setLayout(new BorderLayout(5,5));
 	    top.add(new JLabel("Your name: "));top.add(name);    
-	    top.add(new JLabel("Server Address: "));top.add(ip);
+			top.add(new JLabel("Node IP: "));top.add(ip);
+			top.add(new JLabel("My IP: "));top.add(myIP);
 			top.add(connect);
 			top.add(btc);
 	    cn.add(new JScrollPane(tx), BorderLayout.CENTER);        
@@ -114,7 +148,7 @@ public class ClientTela {
 	      public void actionPerformed(ActionEvent e){ sendText();   }  });
 	    
 	    frame.setContentPane(main);
-	    frame.setSize(600,600);
+	    frame.setSize(800,600);
 	    frame.setVisible(true);  
 		}
 		/**
@@ -125,6 +159,8 @@ public class ClientTela {
     */
 
     public static void main(String[] args) {
+			Thread t = new Thread(new Server());
+			t.start();
 			ClientTela cliente = new ClientTela();
 		}
 		/**
