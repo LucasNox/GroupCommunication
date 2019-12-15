@@ -2,6 +2,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - grAdmin",
+            "request": "launch",
+            "mainClass": "server.grAdmin",
+            "projectName": "GroupCommunicationProject",
+            "args": "25.0.121.130"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ClientTela",
             "request": "launch",
             "mainClass": "structure.ClientTela",

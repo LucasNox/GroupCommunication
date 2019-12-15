@@ -26,6 +26,7 @@ public class ConnectionGraph implements Serializable {
 
 	public void merge(ConnectionGraph connections) {
 		this.connections.putAll(connections.getConnections());
+		this.nodes.addAll(connections.getNodes());
 	}
 
 	public void addConnection(Integer id, GroupNode node) {

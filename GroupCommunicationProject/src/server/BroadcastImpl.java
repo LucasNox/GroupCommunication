@@ -91,12 +91,12 @@ public class BroadcastImpl implements Broadcast {
     public String grAdmin() throws RemoteException{
         String info = "\n";
 
+        info = info + "Quantidade de elementos: " + this.node.getConnections().getNodes().size() + "\n";
+
         HashMap<Integer, LinkedList<GroupNode>> tree = this.node.getConnections().getConnections();
 
-        GroupNode aux = this.node;
-
         for (Map.Entry<Integer, LinkedList<GroupNode>> entry : tree.entrySet()){
-            info = info + "Node: " + aux.getIP() + " Connections: ";
+            info = info + "Node: " + this.node.getConnections().getNodes().get(entry.getKey()).getIP() + " Connections: ";
             
             for (GroupNode leaf : entry.getValue()) {
                 info = info + leaf.getIP() + ", ";
