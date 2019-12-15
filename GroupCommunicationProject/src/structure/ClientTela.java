@@ -59,7 +59,9 @@ public class ClientTela {
 				stub.createGroup(IP);
 				if(!IP.equals(ipNode))
 				{
+					System.out.println(stub.getNodes());
 					stub.enterGroup(ipNode);
+					System.out.println(stub.getNodes());
 				}
 			} catch (Exception e) {
 				System.err.println("Client exception: " + e.toString());

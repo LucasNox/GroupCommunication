@@ -64,49 +64,37 @@ public class GroupNode implements Serializable {
 		return this.connections;
 	}
 
-	public void addConnection(GroupNode node) {
+	private Broadcast makeStub(GroupNode node) {
 		Registry registry;
+		Broadcast stub = null;
+		try {
+			registry = LocateRegistry.getRegistry(node.getIP());
+			stub = (Broadcast) registry.lookup("Broadcast");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			e.printStackTrace();
+		}
+		node.setID(this.connections.getNodes().size());
+		this.connections.addConnection(this.ID, node);
+		this.connections.addConnection(node.getID(), this);
+		node.mergeConnections(this.connections);
+		
+		return stub;
+	}
+
+	public void addConnection(GroupNode node) {
 		if (this.stub1 == null)
 		{
-			try {
-				registry = LocateRegistry.getRegistry(node.getIP());
-				this.stub1 = (Broadcast) registry.lookup("Broadcast");
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			} catch (NotBoundException e) {
-				e.printStackTrace();
-			}
-			this.connections.addConnection(this.ID, node);
-			this.connections.addConnection(node.getID(), this);
-			node.mergeConnections(this.connections);
+			this.stub1 = makeStub(node);
 		}
 		else if(this.stub2 == null)
 		{
-			try {
-				registry = LocateRegistry.getRegistry(node.getIP());
-				this.stub2 = (Broadcast) registry.lookup("Broadcast");
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			} catch (NotBoundException e) {
-				e.printStackTrace();
-			}
-			this.connections.addConnection(this.ID, node);
-			this.connections.addConnection(node.getID(), this);
-			node.mergeConnections(this.connections);
+			this.stub2 = makeStub(node);
 		}
 		else if(this.stub3 == null)
 		{
-			try {
-				registry = LocateRegistry.getRegistry(node.getIP());
-				this.stub3 = (Broadcast) registry.lookup("Broadcast");
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			} catch (NotBoundException e) {
-				e.printStackTrace();
-			}
-			this.connections.addConnection(this.ID, node);
-			this.connections.addConnection(node.getID(), this);
-			node.mergeConnections(this.connections);
+			this.stub3 = makeStub(node);
 		}
 	}
 	
@@ -146,7 +134,6 @@ public class GroupNode implements Serializable {
 		return "{" +
 			" ID='" + getID() + "'" +
 			", messages='" + getMessages() + "'" +
-			", connections='" + getConnections() + "'" +
 			"}";
 	}
 	
