@@ -79,4 +79,11 @@ public class BroadcastImpl implements Broadcast {
         this.node.addConnection(node);
         return node;
     }
+
+    @Override
+    public LinkedList<String> grAdmin() throws RemoteException{
+        LinkedList<String> info;
+
+        return info;
+    }
 }

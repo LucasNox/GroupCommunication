@@ -1,5 +1,11 @@
-import GroupCommunication.Node;
-import java.util.*;
+package server;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.LinkedList;
+import java.util.Iterator;
+
+import org.w3c.dom.Node;
 
 /**
  * @file  grAdmin.java
@@ -22,36 +28,19 @@ public class grAdmin
     public static void main(String[] args){
         String IP = args[0];
         
-        try{
-            look_up = (Node) Naming.lookup("rmi://"+IP+"/groupCom");
-
-            HashMap<String, List<String>> resp = look_up.getGroup(IP);   
-            System.out.println("Quantidade nós = " + resp.get("total"));
-            System.out.println("Grafo de conecxões do grupo:");
-            for (Map.Entry<String, List<String>> entry : map.entrySet()){
-                System.out.println(entry.getKey() + " -> ");
-                for (int i = 0; i < entry.getValue().size(); i++){
-                    System.out.println(entry.getValue().get(i) + ", ");
-                }
+        try {
+            Registry registry = LocateRegistry.getRegistry(IP);
+			Broadcast stub = (Broadcast) registry.lookup("Broadcast");
+						
+            LinkedList<String> info = stub.grAdmin();
+            Iterator it = info.iterator();
+            while(it.hasNext()){
+                System.out.println(it.next());
             }
+        } catch (Exception e) {
+            System.err.println("grAdmin exception: " + e.toString());
+            e.printStackTrace();
         }
-        catch (MalformedURLException murle) { 
-            System.out.println("\nMalformedURLException: "
-                               + murle); 
-        }
-        catch (RemoteException re) { 
-            System.out.println("\nRemoteException: "
-                               + re); 
-        } 
-  
-        catch (NotBoundException nbe) { 
-            System.out.println("\nNotBoundException: "
-                               + nbe); 
-        } 
-  
-        catch (java.lang.ArithmeticException ae) { 
-            System.out.println("\nArithmeticException: " + ae); 
-        } 
     }
     /**
     * @fn public static void main(String[] args)
