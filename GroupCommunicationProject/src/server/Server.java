@@ -20,7 +20,7 @@ public class Server implements Runnable {
 
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
-            registry.bind("Broadcast", stub);
+            registry.rebind("Broadcast", stub);
 
             System.out.println("Server ready");
         } catch (Exception e) {
