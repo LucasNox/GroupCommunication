@@ -3,8 +3,10 @@ package server;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 
 import structure.GroupNode;
 
@@ -80,5 +82,24 @@ public class BroadcastImpl implements Broadcast {
     public GroupNode receiveNode(GroupNode node) throws RemoteException {
         this.node.addConnection(node);
         return node;
+    }
+
+    @Override
+    public String grAdmin() throws RemoteException{
+        String info = "\n";
+
+        HashMap<Integer, LinkedList<GroupNode>> tree = this.node.getConnections().getConnections();
+
+        GroupNode aux = this.node;
+
+        for (Map.Entry<Integer, LinkedList<GroupNode>> entry : tree.entrySet()){
+            info = info + "Node: " + aux.getIP() + " Connections: ";
+            
+            for (GroupNode leaf : entry.getValue()) {
+                info = info + leaf.getIP() + ", ";
+            }
+            info = info + "\n";
+        }
+        return info;
     }
 }
