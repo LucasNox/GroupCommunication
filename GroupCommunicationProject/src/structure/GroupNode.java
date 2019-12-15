@@ -30,6 +30,7 @@ public class GroupNode implements Serializable {
 		this.IP = IP;
 		this.connections = new ConnectionGraph();
 		this.connections.addNode(this);
+		this.messages = new LinkedList<>();
 		this.stub1 = null;
 		this.stub2 = null;
 		this.stub3 = null;

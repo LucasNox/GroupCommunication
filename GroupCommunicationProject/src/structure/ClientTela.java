@@ -47,6 +47,7 @@ public class ClientTela {
 			String ipNode = ip.getText();
 			bt.setEnabled(true);
 			btc.setEnabled(true);
+
 			
 			Thread t = new Thread(new Server(IP));
 			t.start();

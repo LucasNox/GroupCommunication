@@ -70,6 +70,7 @@ public class BroadcastImpl implements Broadcast {
 
     @Override
     public void testSpeed() throws RemoteException {
+        System.out.println("Estou sendo testado para averiguar velocidade");
         return;
     }
 

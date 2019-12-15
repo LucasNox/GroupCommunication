@@ -15,6 +15,9 @@ public class Server implements Runnable {
     @Override
     public void run () {
         try {
+            System.out.println("Antes de setar hostname, deixa eu ver o IP: " + IP);
+			System.setProperty("java.rmi.server.hostname", IP);
+
             BroadcastImpl obj = new BroadcastImpl();
             Broadcast stub = (Broadcast) UnicastRemoteObject.exportObject(obj, 0);
 
