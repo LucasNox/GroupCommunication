@@ -159,7 +159,7 @@ public class GroupNode implements Serializable {
 			return false;
 		}
 		GroupNode groupNode = (GroupNode) o;
-		return ID == groupNode.ID && Objects.equals(messages, groupNode.messages) && Objects.equals(connections, groupNode.connections);
+		return ID == groupNode.ID && Objects.equals(messages, groupNode.messages);
 	}
 
 	@Override
