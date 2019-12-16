@@ -131,7 +131,7 @@ public class BroadcastImpl implements Broadcast {
     @Override
     public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException{
         System.out.println("SEND STRING");
-        System.out.println(nick+txt+time);
+        System.out.println("["+nick+" "+time+"] "+txt+"\n");
         Message msg = new Message(nick, txt, time);
 
         if(this.node.getStub1() != null){

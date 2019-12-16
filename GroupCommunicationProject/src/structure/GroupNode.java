@@ -90,8 +90,8 @@ public class GroupNode implements Serializable {
 	}
 
 	public void addMessage(Message msg) {
-		System.out.println("ADD MESSAGES");
-		System.out.println(msg.getAuthor()+msg.getMessage()+msg.getTime());
+		//System.out.println("ADD MESSAGES");
+		//System.out.println(msg.getAuthor()+msg.getMessage()+msg.getTime());
 		
 		this.messages.addLast(msg);
 		//System.out.println(this.messages);

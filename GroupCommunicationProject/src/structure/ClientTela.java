@@ -34,10 +34,10 @@ public class ClientTela {
 		 *   GLOBAL VARIABLES
 		 *******************************************************************/
 		static JTextArea tx;
-		JTextField tf,ip, name, myIP;
-		JButton connect, bt, btc;
-		JList lst;
-		JFrame frame;
+		static JTextField tf,ip, name, myIP;
+		static JButton connect, bt, btc;
+		static JList lst;
+		static JFrame frame;
 		
 		String IP;
 		static Broadcast stub;
@@ -99,15 +99,15 @@ public class ClientTela {
 			
 				//System.out.println("LISTEN MSGS");
 
-		if(msgs.size()>0){
-			System.out.println("MSGS EXIST");
-			for (Message msg : msgs) {
-				String format = "["+msg.getAuthor()+" "+msg.getTime()+"] "+msg.getMessage()+"\n";
-				tx.append(format);
-			}
+				//if(msgs.size()>0){
+				//	System.out.println("MSGS EXIST");
+					for (Message msg : msgs) {
+						String format = "["+msg.getAuthor()+" "+msg.getTime()+"] "+msg.getMessage()+"\n";
+						tx.append(format);
+					}
+				//}
+			}catch(Exception e){}
 		}
-	}catch(Exception e){}
-	}
 		
 		/**
     * @fn public void getTextUsers()
