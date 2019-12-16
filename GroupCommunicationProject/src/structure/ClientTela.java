@@ -98,9 +98,8 @@ public class ClientTela {
 				LinkedList<Message> msgs = stub.getMSGS();
 			
 				//System.out.println("LISTEN MSGS");
-		//System.out.println(msgs);
 
-		if(msgs.size() > 0){
+		if(msgs.size()>0){
 			System.out.println("MSGS EXIST");
 			for (Message msg : msgs) {
 				String format = "["+msg.getAuthor()+" "+msg.getTime()+"] "+msg.getMessage()+"\n";

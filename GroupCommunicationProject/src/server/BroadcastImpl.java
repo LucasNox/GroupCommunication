@@ -112,12 +112,36 @@ public class BroadcastImpl implements Broadcast {
     }
 
     @Override
+    public GroupNode getNo() throws RemoteException{
+        return this.node;
+    }
+
+    @Override
     public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException{
         System.out.println("SEND STRING");
         System.out.println(nick+txt+time);
         Message msg = new Message(nick, txt, time);
+
+        if(this.node.getStub1() != null){
+            if(!this.node.getStub1().getNo().getIP().equals(ipF)){
+                this.node.getStub1().setMSG(msg);
+                this.node.getStub1().sendString(txt, nick, time, this.node.getIP());
+            }
+        }
+        if(this.node.getStub2() != null){
+            if(!this.node.getStub1().getNo().getIP().equals(ipF)){
+                this.node.getStub2().setMSG(msg);
+                this.node.getStub2().sendString(txt, nick, time, this.node.getIP());
+            }
+        }
+        if(this.node.getStub3() != null){
+            if(!this.node.getStub1().getNo().getIP().equals(ipF)){
+                this.node.getStub3().setMSG(msg);
+                this.node.getStub3().sendString(txt, nick, time, this.node.getIP());
+            }
+        }
         
-        LinkedList<GroupNode> cons = this.node.getConnections().getNodes();
+        /*LinkedList<GroupNode> cons = this.node.getConnections().getNodes();
         for (GroupNode nos : cons) {
             if(!ipF.equals(nos.getIP())){
                 try {
@@ -127,7 +151,7 @@ public class BroadcastImpl implements Broadcast {
                     stub.sendString(txt, nick, time, this.node.getIP());
                 }catch(Exception e){}
             }
-        }
+        }*/
     }
 
     @Override
