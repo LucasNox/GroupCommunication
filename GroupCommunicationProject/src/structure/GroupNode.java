@@ -37,6 +37,18 @@ public class GroupNode implements Serializable {
 		this.stub3 = null;
 	}
 
+	public void setStub1(Broadcast stub){
+		this.stub1 = stub;
+	}
+
+	public void setStub2(Broadcast stub){
+		this.stub2 = stub;
+	}
+
+	public void setStub3(Broadcast stub){
+		this.stub3 = stub;
+	}
+
 	public Broadcast getStub1(){
 		return this.stub1;
 	}

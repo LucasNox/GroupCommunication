@@ -65,6 +65,18 @@ public class BroadcastImpl implements Broadcast {
             registry = LocateRegistry.getRegistry(nodes.get(minor_time_index).getIP());
             stub = (Broadcast) registry.lookup("Broadcast");
             this.node = stub.receiveNode(this.node);
+            if (this.node.getStub1() == null)
+            {
+                this.node.setStub1(stub);
+            }
+            else if(this.node.getStub2() == null)
+            {
+                this.node.setStub2(stub);
+            }
+            else if(this.node.getStub3() == null)
+            {
+                this.node.setStub3(stub);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
