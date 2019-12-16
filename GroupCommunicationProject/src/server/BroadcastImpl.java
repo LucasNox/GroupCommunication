@@ -68,14 +68,17 @@ public class BroadcastImpl implements Broadcast {
             if (this.node.getStub1() == null)
             {
                 this.node.setStub1(stub);
+                this.node.getStub1().updateConnGraph(this.node);
             }
             else if(this.node.getStub2() == null)
             {
                 this.node.setStub2(stub);
+                this.node.getStub2().updateConnGraph(this.node);
             }
             else if(this.node.getStub3() == null)
             {
                 this.node.setStub3(stub);
+                this.node.getStub3().updateConnGraph(this.node);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,13 +144,13 @@ public class BroadcastImpl implements Broadcast {
             }
         }
         if(this.node.getStub2() != null){
-            if(!this.node.getStub1().getNo().getIP().equals(ipF)){
+            if(!this.node.getStub2().getNo().getIP().equals(ipF)){
                 this.node.getStub2().setMSG(msg);
                 this.node.getStub2().sendString(txt, nick, time, this.node.getIP());
             }
         }
         if(this.node.getStub3() != null){
-            if(!this.node.getStub1().getNo().getIP().equals(ipF)){
+            if(!this.node.getStub3().getNo().getIP().equals(ipF)){
                 this.node.getStub3().setMSG(msg);
                 this.node.getStub3().sendString(txt, nick, time, this.node.getIP());
             }
@@ -170,5 +173,25 @@ public class BroadcastImpl implements Broadcast {
     public LinkedList<Message> getMSGS() throws RemoteException{
         //System.out.println("GET MSGS");
         return this.node.getMessages();
+    }
+    
+    @Override
+    public void updateConnGraph(GroupNode node) throws RemoteException {
+        this.node.mergeConnections(node.getConnections());
+        if(this.node.getStub1() != null){
+            if(!this.node.getStub1().getNo().getIP().equals(node.getIP())){
+                this.node.getStub1().updateConnGraph(this.node);
+            }
+        }
+        if(this.node.getStub2() != null){
+            if(!this.node.getStub2().getNo().getIP().equals(node.getIP())){
+                this.node.getStub2().updateConnGraph(this.node);
+            }
+        }
+        if(this.node.getStub3() != null){
+            if(!this.node.getStub3().getNo().getIP().equals(node.getIP())){
+                this.node.getStub3().updateConnGraph(this.node);
+            }
+        }
     }
 }

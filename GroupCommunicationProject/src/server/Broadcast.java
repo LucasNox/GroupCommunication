@@ -20,4 +20,5 @@ public interface Broadcast extends Remote {
     public LinkedList<Message> getMSGS() throws RemoteException;
     public void setMSG(Message msg) throws RemoteException;
     public GroupNode getNo() throws RemoteException;
+    public void updateConnGraph(GroupNode node) throws RemoteException;
 }
