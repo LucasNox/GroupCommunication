@@ -1,0 +1,165 @@
+\hypertarget{interfaceserver_1_1_broadcast}{}\section{server.\+Broadcast Interface Reference}
+\label{interfaceserver_1_1_broadcast}\index{server.\+Broadcast@{server.\+Broadcast}}
+
+
+Inheritance diagram for server.\+Broadcast\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{interfaceserver_1_1_broadcast__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for server.\+Broadcast\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{interfaceserver_1_1_broadcast__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_a1a8d1242a9c00acd3347ae64debe214d}{create\+Group} (String own\+\_\+ip)  throws Remote\+Exception
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_a6ccaeae4c0aae1a20f1dc0c9de38abf8}{enter\+Group} (String group\+\_\+ip)  throws Remote\+Exception
+\item 
+\hyperlink{classstructure_1_1_group_node}{Group\+Node} \hyperlink{interfaceserver_1_1_broadcast_aac507ae95810ae722d7d204e5f0b5762}{receive\+Node} (\hyperlink{classstructure_1_1_group_node}{Group\+Node} node)  throws Remote\+Exception
+\item 
+Linked\+List$<$ \hyperlink{classstructure_1_1_group_node}{Group\+Node} $>$ \hyperlink{interfaceserver_1_1_broadcast_af8619fab19094de9cbc3e0b4d34eca7e}{get\+Nodes} ()  throws Remote\+Exception
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_a1fe00d7724fded04758454fcd1e61615}{test\+Speed} ()  throws Remote\+Exception
+\item 
+String \hyperlink{interfaceserver_1_1_broadcast_ad17b53d0030a03ab8262ec9c94d19cdb}{gr\+Admin} ()  throws Remote\+Exception
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_aaad069086f243e7b256e732a65f78763}{send\+String} (String txt, String nick, Local\+Time time, String ipF)  throws Remote\+Exception
+\item 
+Linked\+List$<$ \hyperlink{classstructure_1_1_message}{Message} $>$ \hyperlink{interfaceserver_1_1_broadcast_ada7537c3ca6e9d8361c7194b2a3b6e7d}{get\+M\+S\+GS} ()  throws Remote\+Exception
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_a96f8dad32733e1d5e503435c11e324af}{set\+M\+SG} (\hyperlink{classstructure_1_1_message}{Message} msg)  throws Remote\+Exception
+\item 
+\hyperlink{classstructure_1_1_group_node}{Group\+Node} \hyperlink{interfaceserver_1_1_broadcast_a16bd97cd54313805b23cb7e2255a66a6}{get\+No} ()  throws Remote\+Exception
+\item 
+void \hyperlink{interfaceserver_1_1_broadcast_a9efddebebb91a7da6bc0ecddcc7a32e6}{update\+Conn\+Graph} (\hyperlink{classstructure_1_1_group_node}{Group\+Node} node)  throws Remote\+Exception
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a1a8d1242a9c00acd3347ae64debe214d}\label{interfaceserver_1_1_broadcast_a1a8d1242a9c00acd3347ae64debe214d}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!create\+Group@{create\+Group}}
+\index{create\+Group@{create\+Group}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{create\+Group()}{createGroup()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+create\+Group (\begin{DoxyParamCaption}\item[{String}]{own\+\_\+ip }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a433529db2e96faf096881d1c38033b45}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a6ccaeae4c0aae1a20f1dc0c9de38abf8}\label{interfaceserver_1_1_broadcast_a6ccaeae4c0aae1a20f1dc0c9de38abf8}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!enter\+Group@{enter\+Group}}
+\index{enter\+Group@{enter\+Group}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{enter\+Group()}{enterGroup()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+enter\+Group (\begin{DoxyParamCaption}\item[{String}]{group\+\_\+ip }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a35a07b1f98aaaa51493cd6ff28d6b90d}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_ada7537c3ca6e9d8361c7194b2a3b6e7d}\label{interfaceserver_1_1_broadcast_ada7537c3ca6e9d8361c7194b2a3b6e7d}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!get\+M\+S\+GS@{get\+M\+S\+GS}}
+\index{get\+M\+S\+GS@{get\+M\+S\+GS}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{get\+M\+S\+G\+S()}{getMSGS()}}
+{\footnotesize\ttfamily Linked\+List$<$\hyperlink{classstructure_1_1_message}{Message}$>$ server.\+Broadcast.\+get\+M\+S\+GS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_aecb6cd49880c2e908b1ba3d17c454ced}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a16bd97cd54313805b23cb7e2255a66a6}\label{interfaceserver_1_1_broadcast_a16bd97cd54313805b23cb7e2255a66a6}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!get\+No@{get\+No}}
+\index{get\+No@{get\+No}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{get\+No()}{getNo()}}
+{\footnotesize\ttfamily \hyperlink{classstructure_1_1_group_node}{Group\+Node} server.\+Broadcast.\+get\+No (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a7e004ba2fd22f9225c278f1b5bbe4dbb}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_af8619fab19094de9cbc3e0b4d34eca7e}\label{interfaceserver_1_1_broadcast_af8619fab19094de9cbc3e0b4d34eca7e}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!get\+Nodes@{get\+Nodes}}
+\index{get\+Nodes@{get\+Nodes}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{get\+Nodes()}{getNodes()}}
+{\footnotesize\ttfamily Linked\+List$<$\hyperlink{classstructure_1_1_group_node}{Group\+Node}$>$ server.\+Broadcast.\+get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_aa6f1dcfe6e97de483e26a2c0a37688d3}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_ad17b53d0030a03ab8262ec9c94d19cdb}\label{interfaceserver_1_1_broadcast_ad17b53d0030a03ab8262ec9c94d19cdb}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!gr\+Admin@{gr\+Admin}}
+\index{gr\+Admin@{gr\+Admin}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{gr\+Admin()}{grAdmin()}}
+{\footnotesize\ttfamily String server.\+Broadcast.\+gr\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_ae5995f5346d95cdbcd02361f10158671}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_aac507ae95810ae722d7d204e5f0b5762}\label{interfaceserver_1_1_broadcast_aac507ae95810ae722d7d204e5f0b5762}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!receive\+Node@{receive\+Node}}
+\index{receive\+Node@{receive\+Node}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{receive\+Node()}{receiveNode()}}
+{\footnotesize\ttfamily \hyperlink{classstructure_1_1_group_node}{Group\+Node} server.\+Broadcast.\+receive\+Node (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_group_node}{Group\+Node}}]{node }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a15437fb9a1caea537b29d0ded4809e32}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_aaad069086f243e7b256e732a65f78763}\label{interfaceserver_1_1_broadcast_aaad069086f243e7b256e732a65f78763}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!send\+String@{send\+String}}
+\index{send\+String@{send\+String}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{send\+String()}{sendString()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+send\+String (\begin{DoxyParamCaption}\item[{String}]{txt,  }\item[{String}]{nick,  }\item[{Local\+Time}]{time,  }\item[{String}]{ipF }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a5abfc6721496474d39d6b2b31589d11b}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a96f8dad32733e1d5e503435c11e324af}\label{interfaceserver_1_1_broadcast_a96f8dad32733e1d5e503435c11e324af}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!set\+M\+SG@{set\+M\+SG}}
+\index{set\+M\+SG@{set\+M\+SG}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{set\+M\+S\+G()}{setMSG()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+set\+M\+SG (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_message}{Message}}]{msg }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a264c486f39faa2ab66a7d5a2a0c245b1}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a1fe00d7724fded04758454fcd1e61615}\label{interfaceserver_1_1_broadcast_a1fe00d7724fded04758454fcd1e61615}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!test\+Speed@{test\+Speed}}
+\index{test\+Speed@{test\+Speed}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{test\+Speed()}{testSpeed()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+test\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_a1ddfea5e6826ec8ff3e6aa3a3a525ccb}{server.\+Broadcast\+Impl}.
+
+\mbox{\Hypertarget{interfaceserver_1_1_broadcast_a9efddebebb91a7da6bc0ecddcc7a32e6}\label{interfaceserver_1_1_broadcast_a9efddebebb91a7da6bc0ecddcc7a32e6}} 
+\index{server\+::\+Broadcast@{server\+::\+Broadcast}!update\+Conn\+Graph@{update\+Conn\+Graph}}
+\index{update\+Conn\+Graph@{update\+Conn\+Graph}!server\+::\+Broadcast@{server\+::\+Broadcast}}
+\subsubsection{\texorpdfstring{update\+Conn\+Graph()}{updateConnGraph()}}
+{\footnotesize\ttfamily void server.\+Broadcast.\+update\+Conn\+Graph (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_group_node}{Group\+Node}}]{node }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classserver_1_1_broadcast_impl_abf98d794cdcf469b48cae2fbb23f1479}{server.\+Broadcast\+Impl}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/server/\hyperlink{_broadcast_8java}{Broadcast.\+java}\end{DoxyCompactItemize}

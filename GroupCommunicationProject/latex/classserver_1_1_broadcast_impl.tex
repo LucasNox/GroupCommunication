@@ -1,0 +1,302 @@
+\hypertarget{classserver_1_1_broadcast_impl}{}\section{server.\+Broadcast\+Impl Class Reference}
+\label{classserver_1_1_broadcast_impl}\index{server.\+Broadcast\+Impl@{server.\+Broadcast\+Impl}}
+
+
+Inheritance diagram for server.\+Broadcast\+Impl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classserver_1_1_broadcast_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for server.\+Broadcast\+Impl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classserver_1_1_broadcast_impl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classserver_1_1_broadcast_impl_a32e3892e38d83045f927f81bca2a0ed9}{Broadcast\+Impl} ()
+\item 
+void \hyperlink{classserver_1_1_broadcast_impl_a433529db2e96faf096881d1c38033b45}{create\+Group} (String own\+\_\+ip)  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em cria grupo/node \end{DoxyCompactList}\item 
+void \hyperlink{classserver_1_1_broadcast_impl_a35a07b1f98aaaa51493cd6ff28d6b90d}{enter\+Group} (String group\+\_\+ip)  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em insere um node no grupo \end{DoxyCompactList}\item 
+void \hyperlink{classserver_1_1_broadcast_impl_a1ddfea5e6826ec8ff3e6aa3a3a525ccb}{test\+Speed} ()  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em testa ping dos integrantes do grupo \end{DoxyCompactList}\item 
+Linked\+List$<$ \hyperlink{classstructure_1_1_group_node}{Group\+Node} $>$ \hyperlink{classserver_1_1_broadcast_impl_aa6f1dcfe6e97de483e26a2c0a37688d3}{get\+Nodes} ()  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em get lista de nodes do grupo \end{DoxyCompactList}\item 
+\hyperlink{classstructure_1_1_group_node}{Group\+Node} \hyperlink{classserver_1_1_broadcast_impl_a15437fb9a1caea537b29d0ded4809e32}{receive\+Node} (\hyperlink{classstructure_1_1_group_node}{Group\+Node} node)  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em Adiciona novo node. \end{DoxyCompactList}\item 
+String \hyperlink{classserver_1_1_broadcast_impl_ae5995f5346d95cdbcd02361f10158671}{gr\+Admin} ()  throws Remote\+Exception
+\item 
+void \hyperlink{classserver_1_1_broadcast_impl_a264c486f39faa2ab66a7d5a2a0c245b1}{set\+M\+SG} (\hyperlink{classstructure_1_1_message}{Message} msg)  throws Remote\+Exception
+\begin{DoxyCompactList}\small\item\em Gera relatório de conexões do grupo. \end{DoxyCompactList}\item 
+\hyperlink{classstructure_1_1_group_node}{Group\+Node} \hyperlink{classserver_1_1_broadcast_impl_a7e004ba2fd22f9225c278f1b5bbe4dbb}{get\+No} ()  throws Remote\+Exception
+\begin{DoxyCompactList}\small\item\em adiciona nova mensagem pendente \end{DoxyCompactList}\item 
+void \hyperlink{classserver_1_1_broadcast_impl_a5abfc6721496474d39d6b2b31589d11b}{send\+String} (String txt, String nick, Local\+Time time, String ipF)  throws Remote\+Exception
+\begin{DoxyCompactList}\small\item\em get node da classe \end{DoxyCompactList}\item 
+Linked\+List$<$ \hyperlink{classstructure_1_1_message}{Message} $>$ \hyperlink{classserver_1_1_broadcast_impl_aecb6cd49880c2e908b1ba3d17c454ced}{get\+M\+S\+GS} ()  throws Remote\+Exception
+\begin{DoxyCompactList}\small\item\em envia msgs aos outros nós que tem conexão, e assim por diante \end{DoxyCompactList}\item 
+void \hyperlink{classserver_1_1_broadcast_impl_abf98d794cdcf469b48cae2fbb23f1479}{update\+Conn\+Graph} (\hyperlink{classstructure_1_1_group_node}{Group\+Node} node)  throws Remote\+Exception 
+\begin{DoxyCompactList}\small\item\em retorna as mensagens recebidas \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a32e3892e38d83045f927f81bca2a0ed9}\label{classserver_1_1_broadcast_impl_a32e3892e38d83045f927f81bca2a0ed9}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!Broadcast\+Impl@{Broadcast\+Impl}}
+\index{Broadcast\+Impl@{Broadcast\+Impl}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{Broadcast\+Impl()}{BroadcastImpl()}}
+{\footnotesize\ttfamily server.\+Broadcast\+Impl.\+Broadcast\+Impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a433529db2e96faf096881d1c38033b45}\label{classserver_1_1_broadcast_impl_a433529db2e96faf096881d1c38033b45}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!create\+Group@{create\+Group}}
+\index{create\+Group@{create\+Group}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{create\+Group()}{createGroup()}}
+{\footnotesize\ttfamily public void server.\+Broadcast\+Impl.\+create\+Group (\begin{DoxyParamCaption}\item[{String}]{own\+\_\+ip }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+cria grupo/node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & own\+\_\+ip -\/ ip própria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a1a8d1242a9c00acd3347ae64debe214d}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a35a07b1f98aaaa51493cd6ff28d6b90d}\label{classserver_1_1_broadcast_impl_a35a07b1f98aaaa51493cd6ff28d6b90d}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!enter\+Group@{enter\+Group}}
+\index{enter\+Group@{enter\+Group}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{enter\+Group()}{enterGroup()}}
+{\footnotesize\ttfamily public void server.\+Broadcast\+Impl.\+enter\+Group (\begin{DoxyParamCaption}\item[{String}]{group\+\_\+ip }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+insere um node no grupo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & group\+\_\+ip -\/ ip de um integrante do grupo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a6ccaeae4c0aae1a20f1dc0c9de38abf8}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_aecb6cd49880c2e908b1ba3d17c454ced}\label{classserver_1_1_broadcast_impl_aecb6cd49880c2e908b1ba3d17c454ced}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!get\+M\+S\+GS@{get\+M\+S\+GS}}
+\index{get\+M\+S\+GS@{get\+M\+S\+GS}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{get\+M\+S\+G\+S()}{getMSGS()}}
+{\footnotesize\ttfamily Linked\+List$<$\hyperlink{classstructure_1_1_message}{Message}$>$ server.\+Broadcast\+Impl.\+get\+M\+S\+GS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+envia msgs aos outros nós que tem conexão, e assim por diante 
+
+void \hyperlink{classserver_1_1_broadcast_impl_a5abfc6721496474d39d6b2b31589d11b}{send\+String(\+String txt, String nick, Local\+Time time, String ip\+F)} throws Remote\+Exception 
+\begin{DoxyParams}{Parameters}
+{\em String} & txt -\/ mensagem \\
+\hline
+{\em String} & nick -\/ autor da mensagem \\
+\hline
+{\em String} & time -\/ horario de envio \\
+\hline
+{\em String} & ipF -\/ IP do node que está enviando a mensagem \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_ada7537c3ca6e9d8361c7194b2a3b6e7d}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a7e004ba2fd22f9225c278f1b5bbe4dbb}\label{classserver_1_1_broadcast_impl_a7e004ba2fd22f9225c278f1b5bbe4dbb}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!get\+No@{get\+No}}
+\index{get\+No@{get\+No}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{get\+No()}{getNo()}}
+{\footnotesize\ttfamily \hyperlink{classstructure_1_1_group_node}{Group\+Node} server.\+Broadcast\+Impl.\+get\+No (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+adiciona nova mensagem pendente 
+
+void \hyperlink{classserver_1_1_broadcast_impl_a264c486f39faa2ab66a7d5a2a0c245b1}{set\+M\+S\+G(\+Message msg)} throws Remote\+Exception 
+\begin{DoxyParams}{Parameters}
+{\em Message} & msg -\/ mensagem recebida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a16bd97cd54313805b23cb7e2255a66a6}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_aa6f1dcfe6e97de483e26a2c0a37688d3}\label{classserver_1_1_broadcast_impl_aa6f1dcfe6e97de483e26a2c0a37688d3}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!get\+Nodes@{get\+Nodes}}
+\index{get\+Nodes@{get\+Nodes}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{get\+Nodes()}{getNodes()}}
+{\footnotesize\ttfamily public Linked\+List$<$ \hyperlink{classstructure_1_1_group_node}{Group\+Node} $>$ server.\+Broadcast\+Impl.\+get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+get lista de nodes do grupo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em null} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Group\+Node$>$ -\/ lista de nodes do grupo 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_af8619fab19094de9cbc3e0b4d34eca7e}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_ae5995f5346d95cdbcd02361f10158671}\label{classserver_1_1_broadcast_impl_ae5995f5346d95cdbcd02361f10158671}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!gr\+Admin@{gr\+Admin}}
+\index{gr\+Admin@{gr\+Admin}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{gr\+Admin()}{grAdmin()}}
+{\footnotesize\ttfamily String server.\+Broadcast\+Impl.\+gr\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_ad17b53d0030a03ab8262ec9c94d19cdb}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a15437fb9a1caea537b29d0ded4809e32}\label{classserver_1_1_broadcast_impl_a15437fb9a1caea537b29d0ded4809e32}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!receive\+Node@{receive\+Node}}
+\index{receive\+Node@{receive\+Node}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{receive\+Node()}{receiveNode()}}
+{\footnotesize\ttfamily public \hyperlink{classstructure_1_1_group_node}{Group\+Node} server.\+Broadcast\+Impl.\+receive\+Node (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_group_node}{Group\+Node}}]{node }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Adiciona novo node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Group\+Node} & node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Group\+Node node 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_aac507ae95810ae722d7d204e5f0b5762}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a5abfc6721496474d39d6b2b31589d11b}\label{classserver_1_1_broadcast_impl_a5abfc6721496474d39d6b2b31589d11b}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!send\+String@{send\+String}}
+\index{send\+String@{send\+String}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{send\+String()}{sendString()}}
+{\footnotesize\ttfamily void server.\+Broadcast\+Impl.\+send\+String (\begin{DoxyParamCaption}\item[{String}]{txt,  }\item[{String}]{nick,  }\item[{Local\+Time}]{time,  }\item[{String}]{ipF }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+get node da classe 
+
+Group\+Node \hyperlink{classserver_1_1_broadcast_impl_a7e004ba2fd22f9225c278f1b5bbe4dbb}{get\+No()} throws Remote\+Exception 
+\begin{DoxyParams}{Parameters}
+{\em null} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Group\+Node node -\/ current node 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_aaad069086f243e7b256e732a65f78763}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a264c486f39faa2ab66a7d5a2a0c245b1}\label{classserver_1_1_broadcast_impl_a264c486f39faa2ab66a7d5a2a0c245b1}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!set\+M\+SG@{set\+M\+SG}}
+\index{set\+M\+SG@{set\+M\+SG}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{set\+M\+S\+G()}{setMSG()}}
+{\footnotesize\ttfamily void server.\+Broadcast\+Impl.\+set\+M\+SG (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_message}{Message}}]{msg }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Gera relatório de conexões do grupo. 
+
+String \hyperlink{classserver_1_1_broadcast_impl_ae5995f5346d95cdbcd02361f10158671}{gr\+Admin()} throws Remote\+Exception 
+\begin{DoxyParams}{Parameters}
+{\em null} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String info -\/ numero de nós, Ip dos nós e conexões do grupo 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a96f8dad32733e1d5e503435c11e324af}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_a1ddfea5e6826ec8ff3e6aa3a3a525ccb}\label{classserver_1_1_broadcast_impl_a1ddfea5e6826ec8ff3e6aa3a3a525ccb}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!test\+Speed@{test\+Speed}}
+\index{test\+Speed@{test\+Speed}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{test\+Speed()}{testSpeed()}}
+{\footnotesize\ttfamily public void server.\+Broadcast\+Impl.\+test\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+testa ping dos integrantes do grupo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em null} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a1fe00d7724fded04758454fcd1e61615}{server.\+Broadcast}.
+
+\mbox{\Hypertarget{classserver_1_1_broadcast_impl_abf98d794cdcf469b48cae2fbb23f1479}\label{classserver_1_1_broadcast_impl_abf98d794cdcf469b48cae2fbb23f1479}} 
+\index{server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}!update\+Conn\+Graph@{update\+Conn\+Graph}}
+\index{update\+Conn\+Graph@{update\+Conn\+Graph}!server\+::\+Broadcast\+Impl@{server\+::\+Broadcast\+Impl}}
+\subsubsection{\texorpdfstring{update\+Conn\+Graph()}{updateConnGraph()}}
+{\footnotesize\ttfamily void server.\+Broadcast\+Impl.\+update\+Conn\+Graph (\begin{DoxyParamCaption}\item[{\hyperlink{classstructure_1_1_group_node}{Group\+Node}}]{node }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+retorna as mensagens recebidas 
+
+public Linked\+List$<$\+Message$>$ \hyperlink{classserver_1_1_broadcast_impl_aecb6cd49880c2e908b1ba3d17c454ced}{get\+M\+S\+G\+S()} throws Remote\+Exception 
+\begin{DoxyParams}{Parameters}
+{\em null} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Message$>$ 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceserver_1_1_broadcast_a9efddebebb91a7da6bc0ecddcc7a32e6}{server.\+Broadcast}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/server/\hyperlink{_broadcast_impl_8java}{Broadcast\+Impl.\+java}\end{DoxyCompactItemize}
