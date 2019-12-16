@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.LinkedList;
 import java.util.TimerTask;
-
+import java.awt.EventQueue;
 import java.util.Timer;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -70,7 +70,7 @@ public class ClientTela {
 				System.err.println("Client exception: " + e.toString());
 				e.printStackTrace();
 			}
-			new Thread(listenMSG).start();
+			this.listenMSG();
 		}
 		/**
     * @fn public void doConnect()
@@ -79,21 +79,28 @@ public class ClientTela {
     * @return null
 		*/
 		
-		private static Runnable listenMSG = new Runnable() {
-			public void run() {
-					try{
-							Timer timer = new Timer();
-							timer.schedule(new TimerTask() {
-								@Override 
-									public void run(){
-										getTextUsers();
-									}
-							}, 1, 1);
-					} catch (Exception e){e.printStackTrace();}
-			}
-		};
+		private void listenMSG(){
+			EventQueue.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						try{
+							LinkedList<Message> msgs = stub.getMSGS();
+						
+							//System.out.println("LISTEN MSGS");
+			
+							//if(msgs.size()>0){
+							//	System.out.println("MSGS EXIST");
+								for (Message msg : msgs) {
+									String format = "["+msg.getAuthor()+" "+msg.getTime()+"] "+msg.getMessage()+"\n";
+									tx.append(format);
+								}
+							//}
+						}catch(Exception e){}
+					}
+				});
+		}	
 
-    public static void getTextUsers(){
+    /*private static void getTextUsers(){
 			try{
 				LinkedList<Message> msgs = stub.getMSGS();
 			
@@ -107,7 +114,7 @@ public class ClientTela {
 					}
 				//}
 			}catch(Exception e){}
-		}
+		}*/
 		
 		/**
     * @fn public void getTextUsers()
