@@ -152,7 +152,15 @@ public class BroadcastImpl implements Broadcast {
         HashMap<Integer, LinkedList<GroupNode>> tree = this.node.getConnections().getConnections();
 
         for (Map.Entry<Integer, LinkedList<GroupNode>> entry : tree.entrySet()){
-            info = info + "Node: " + this.node.getConnections().getNodes().get(entry.getKey()).getIP() + " Connections: ";
+            GroupNode aux_node = null;
+            for(GroupNode aux_node2 : this.node.getConnections().getNodes())
+            {
+                if(entry.getKey().equals(aux_node2.getID()))
+                {
+                    aux_node = aux_node2;
+                }
+            }
+            info = info + "Node: " + aux_node.getIP() + " Connections: ";
             
             for (GroupNode leaf : entry.getValue()) {
                 info = info + leaf.getIP() + ", ";
