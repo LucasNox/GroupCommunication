@@ -6,13 +6,21 @@ import java.util.LinkedList;
 import java.util.Objects;
 
 /**
- * ConnectionGraph
- */
+ * @file connectionGraph.java
+ * @brief Arquivo com as funções do grafo de conexões
+*/
 public class ConnectionGraph implements Serializable {
+	/*******************************************************************
+		 *   GLOBAL VARIABLES
+		 *******************************************************************/
 	private static final long serialVersionUID = -2397552887357041731L;
 
 	private HashMap<Integer, LinkedList<GroupNode>> connections;
 	private LinkedList<GroupNode> nodes;
+
+	/*******************************************************************
+		 *   IMPLEMENTATION
+		 *******************************************************************/
 
 	public ConnectionGraph() {
 		super();

@@ -235,6 +235,15 @@ public class BroadcastImpl implements Broadcast {
             }
         }*/
     }
+    /**
+    * @public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException
+    * @brief envia msgs aos outros nós que tem conexão, e assim por diante
+    * @param String txt - mensagem
+    * @param String nick - autor da mensagem
+    * @param String time - horario de envio
+    * @param String ipF - IP do node que está enviando a mensagem
+    * @return null
+	*/   
     
 
     @Override
@@ -242,6 +251,12 @@ public class BroadcastImpl implements Broadcast {
         //System.out.println("GET MSGS");
         return this.node.getMessages();
     }
+    /**
+    * public LinkedList<Message> getMSGS() throws RemoteException
+    * @brief retorna as mensagens recebidas
+    * @param null
+    * @return LinkedList<Message>
+	*/   
     
     @Override
     public void updateConnGraph(GroupNode node) throws RemoteException {
@@ -262,4 +277,10 @@ public class BroadcastImpl implements Broadcast {
             }
         }
     }
+    /**
+    * public void updateConnGraph(GroupNode node) throws RemoteException
+    * @brief atualiza grafo de conexões
+    * @param GroupNode node
+    * @return null
+	*/   
 }

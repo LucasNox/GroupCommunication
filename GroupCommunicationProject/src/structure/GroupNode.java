@@ -11,9 +11,13 @@ import java.util.Objects;
 import server.Broadcast;
 
 /**
- * GroupNode
- */
+ * @file  GroupNode.java
+ * @brief Arquivo com as funções do node
+*/
 public class GroupNode implements Serializable {
+	/*******************************************************************
+	*   GLOBAL VARIABLES
+	*******************************************************************/
 	private static final long serialVersionUID = -2445601595314701864L;
 
 	private int ID;
@@ -23,6 +27,10 @@ public class GroupNode implements Serializable {
 	private Broadcast stub1;
 	private Broadcast stub2;
 	private Broadcast stub3;
+
+	/*******************************************************************
+	 *   IMPLEMENTATION
+	*******************************************************************/
 
 	public GroupNode(String IP) {
 		super();
@@ -120,6 +128,12 @@ public class GroupNode implements Serializable {
 		
 		return stub;
 	}
+	/**
+    * @fn private Broadcast makeStub(GroupNode node)
+    * @brief abre comunicação com os nós filhos
+    * @param GroupNode node - novo filho
+    * @return Brosdcast stub de comunicação
+	*/
 
 	public void addConnection(GroupNode node) {
 		if (this.stub1 == null)

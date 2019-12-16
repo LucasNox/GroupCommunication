@@ -4,9 +4,20 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * @file  Server.java
+ * @brief Liga o node server
+*/
+
 public class Server implements Runnable {
+    /*******************************************************************
+	*   GLOBAL VARIABLES
+	*******************************************************************/
     private String IP;
 
+    /*******************************************************************
+	*   IMPLEMENTATION
+	*******************************************************************/
     public Server(String IP) {
         super();
         this.IP = IP;
