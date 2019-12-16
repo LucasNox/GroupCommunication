@@ -8,6 +8,11 @@ import java.util.LinkedList;
 import structure.GroupNode;
 import structure.Message;
 
+/**
+ * @file  Broadcast.java
+ * @brief Interface do BroadcastImpl
+*/
+
 public interface Broadcast extends Remote {
     
     void createGroup(String own_ip) throws RemoteException;

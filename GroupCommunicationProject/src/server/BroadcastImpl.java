@@ -12,9 +12,20 @@ import java.util.Map;
 import structure.GroupNode;
 import structure.Message;
 
+/**
+ * @file  BroadcastImpl.java
+ * @brief Implementa as funções compartilhadas dos nodes
+*/
+
 public class BroadcastImpl implements Broadcast {
+    /*******************************************************************
+	*   GLOBAL VARIABLES
+	*******************************************************************/
     private GroupNode node;
 
+    /*******************************************************************
+	*   IMPLEMENTATION
+	*******************************************************************/
     public BroadcastImpl() {
         super();
         this.node = null;
@@ -26,6 +37,12 @@ public class BroadcastImpl implements Broadcast {
             this.node = new GroupNode(own_ip);
         }
     }
+    /**
+    * @fn public void createGroup(String own_ip) throws RemoteException
+    * @brief cria grupo/node
+    * @param String own_ip - ip própria
+    * @return null
+	*/
 
     @Override
     public void enterGroup(String group_ip) throws RemoteException {
@@ -83,24 +100,48 @@ public class BroadcastImpl implements Broadcast {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }    
+    } 
+    /**
+    * @fn public void enterGroup(String group_ip) throws RemoteException
+    * @brief insere um node no grupo
+    * @param String group_ip - ip de um integrante do grupo
+    * @return null
+	*/   
 
     @Override
     public void testSpeed() throws RemoteException {
         System.out.println("Estou sendo testado para averiguar velocidade");
         return;
     }
+    /**
+    * @fn public void testSpeed() throws RemoteException
+    * @brief testa ping dos integrantes do grupo
+    * @param null
+    * @return null
+	*/   
 
     @Override
     public LinkedList<GroupNode> getNodes() throws RemoteException {
         return this.node.getConnections().getNodes();
     }    
+    /**
+    * @fn public LinkedList<GroupNode> getNodes() throws RemoteException
+    * @brief get lista de nodes do grupo
+    * @param null
+    * @return LinkedList<GroupNode> - lista de nodes do grupo
+	*/   
 
     @Override
     public GroupNode receiveNode(GroupNode node) throws RemoteException {
         this.node.addConnection(node);
         return node;
     }
+    /**
+    * @fn public GroupNode receiveNode(GroupNode node) throws RemoteException
+    * @brief Adiciona novo node
+    * @param GroupNode node
+    * @return GroupNode node
+	*/   
 
     @Override
     public String grAdmin() throws RemoteException{
@@ -120,16 +161,34 @@ public class BroadcastImpl implements Broadcast {
         }
         return info;
     }
+    /**
+    * @public String grAdmin() throws RemoteException
+    * @brief Gera relatório de conexões do grupo
+    * @param null
+    * @return String info - numero de nós, Ip dos nós e conexões do grupo
+	*/   
 
     @Override
     public void setMSG(Message msg) throws RemoteException{
         this.node.addMessage(msg);
     }
+    /**
+    * @public void setMSG(Message msg) throws RemoteException
+    * @brief adiciona nova mensagem pendente
+    * @param Message msg - mensagem recebida
+    * @return null
+	*/   
 
     @Override
     public GroupNode getNo() throws RemoteException{
         return this.node;
     }
+    /**
+    * @public GroupNode getNo() throws RemoteException
+    * @brief get node da classe
+    * @param null
+    * @return GroupNode node - current node
+	*/   
 
     @Override
     public void sendString(String txt, String nick, LocalTime time, String ipF) throws RemoteException{
@@ -168,6 +227,7 @@ public class BroadcastImpl implements Broadcast {
             }
         }*/
     }
+    
 
     @Override
     public LinkedList<Message> getMSGS() throws RemoteException{

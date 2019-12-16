@@ -99,6 +99,12 @@ public class ClientTela {
 					}
 				});
 		}	
+		/**
+    * @fn private void listenMSG()
+    * @brief recebe e exibe as mensagens na tela
+    * @param null
+    * @return null
+		*/
 
     /*private static void getTextUsers(){
 			try{
@@ -116,12 +122,7 @@ public class ClientTela {
 			}catch(Exception e){}
 		}*/
 		
-		/**
-    * @fn public void getTextUsers()
-    * @brief escuta/recebe as mensagens de outros usuarios
-    * @param null
-    * @return null
-    */
+		
 
     public void sendText(){
 					String st=tf.getText();
